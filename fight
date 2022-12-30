@@ -1,0 +1,30 @@
+import random
+
+
+class brep:
+    player_health = 50
+    player_damage = 50
+
+    def fight(self, player_health, player_damage):
+        health_enemy = random.randint(30, 101)
+        damage_enemy = random.randint(30, 101)
+
+        fight_result_enemy = health_enemy - player_damage
+        fight_result_person = player_health - damage_enemy
+
+        if fight_result_enemy < fight_result_person:
+            print(f"Your health after the fight is {fight_result_person}, the enemy has {fight_result_enemy}. You won")
+            add_health = random.randint(0, 101)
+            player_health = player_health + health_enemy*(add_health/100)
+            return player_health
+        elif fight_result_enemy > fight_result_person:
+            print(f"Your health after the fight is {fight_result_person}, the enemy has {fight_result_enemy}. You lost")
+        else:
+            coin = input("It´s a tie. We flip a coin: 1 for head or 2 for tail")
+            while coin != 1 and coin != 2:
+                coin = input("It´s a tie. We flip a coin: 1 for head or 2 for tail")
+            coin_flip = random.randint(1,3)
+            if coin == coin_flip:
+                print("True, you won")
+            else:
+                print("Wrong, you lost")
