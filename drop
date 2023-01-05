@@ -1,0 +1,7 @@
+drop_set=["health","nothing","health","nothing"]
+
+def drop():
+    prize=random.randint(0,len(drop_set))
+    if(prize-1=="health"):
+        health+=1   
+    return drop_set[prize-1]
