@@ -1,0 +1,9 @@
+def beginning():
+    name=str(input("Write yout name: "))
+
+    print(f"Hello, {name}")
+
+    f=open("beginning.txt","r")
+    text=f.read()
+    print(text)
+    f.close()
