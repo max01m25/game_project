@@ -32,7 +32,7 @@ def haul():
     f.close()
 
 def house():
-    print("Your have discovered a house a house. What area do you want to explore:")
+    print("Your have discovered a house. What area do you want to explore:")
     decision=int(input("0: East, 1: North: "))
     while (decision!=0 and decision!=1):
         decision=int(input("1: East, 2: North: "))
