@@ -19,3 +19,13 @@ def get_key(txt):
     return x
 
 
+def give_non_empty_str(txt):
+    
+    while True:
+        data=input(txt)
+        if len(data)!=0:
+            break
+    return data
+
+
+#.

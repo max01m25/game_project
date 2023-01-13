@@ -3,7 +3,7 @@ import board_elements
 import user_input
 
 
-# Create the constants 
+# Create the constants .
 BOARDWIDTH = 5  # number of columns in the board
 BOARDHEIGHT = 5 # number of rows in the board
 UP = 'w'

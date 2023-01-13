@@ -1,6 +1,8 @@
 import random
 
-name=str(input("Write yout name: "))
+import user_input
+
+name= user_input.give_non_empty_str("Write yout name: ")
 
 print(f"Hello, {name}")
 
