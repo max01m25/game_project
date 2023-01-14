@@ -13,8 +13,12 @@ RIGHT = 'd'
 board =[]
 player = [BOARDHEIGHT-1,round(BOARDWIDTH/2)] #initial position of the player
 MOVES = "Move: w-up, s-down, a-left, d-right. \nChoice: "
+
+#Lists of elements on the board
 ENEMIES = [] #list of enemies
 CHESTS = []
+
+
 STAT = 1 # variable dependent on a status of the player - can play, or has lost
 
 
@@ -29,7 +33,7 @@ def create_board():
 
 def initialize_board(num_of_enemies,num_of_chests):
     """
-    initializes the board for every stage of the game
+    Initializes the board for every stage of the game
     """
     global player
     global board
@@ -52,7 +56,7 @@ def print_board(board):
 
 def change_stat():
     """
-    changes player state to lost
+    Changes player state to lost
     """
     global STAT
     STAT = 0
@@ -68,7 +72,7 @@ def random_col(board):
 
 def place_element(board):
     """
-    gives a random position of one enemy/chest on the board
+    Gives a random position of one enemy/chest on the board
     """
     element_row = random_row(board)
     element_col = random_col(board)
@@ -109,7 +113,7 @@ def place_player(row,col, player):
 
 def player_position():
     """ 
-    Return the row and column of  the board coordinates of the player
+    Returns the row and column of  the board coordinates of the player
     """
     return player
 
@@ -117,7 +121,7 @@ def player_position():
 
 def is_valid_move(board, move):
     """ 
-    checks if a player has chosen a good and valid option
+    Checks if a player has chosen a good and valid option
     """
     pos_x, pos_y = player_position()
     return (move == RIGHT and pos_y != len(board[0]) - 1) or \
@@ -134,6 +138,7 @@ def give_move():
     while True:
         print()
         move =  input(MOVES)
+        move=move.lower()
         if move in moves:
             break
     return move
@@ -250,19 +255,23 @@ s- backwards(down)
 """
 def create_stage(num_enemies,player_health,num_chests):
     """
-    preprares each stage of the game: board initialization, enemies and chests (if needed) placement, 
+    Preprares each stage of the game: board initialization, enemies and chests (if needed) placement, 
     and then conducts the whole stage
     """
 
     global board
     board= initialize_board(num_enemies,num_chests)
-    """
+    
+
+
     for i in range(num_enemies):
         board[ENEMIES[i][0]][ENEMIES[i][1]]="E"+str(i+1)
     if num_chests!=0:
         for i in range(num_chests):
             board[CHESTS[i][0]][CHESTS[i][1]]="C"+str(i+1)
-    """
+    
+
+
     print()
     print_board(board)
     
@@ -282,24 +291,52 @@ def create_stage(num_enemies,player_health,num_chests):
 
 
 
+def riddle():
+
+    """Chooses randomly one riddle to be answered by the player after he succeeded in every stage of the game"""
+
+    riddles= [["Write down the next number in the pattern: 2, 5, 10, 17, 26…","37"], 
+    ["When my dad was 31, I was just 8 years old. Now his age is twice as old as my age. What is my present age?","23"],
+    ["There is a three-digit number. The second is four times as big as the third number, while the first is three less than the second digit. What is the number?","141"],
+    ["When Miguel was 6 years old, his little sister, Leila, was half his age. If Miguel is 40 years old today, how old is Leila?","37"],
+    ["X is a three-digit number. The tens digit is 5 more than the ones digit. The hundreds digit is 8 less than the tens digit. What is X?","194"]]
+
+    to_guess= random.randint(0,len(riddles)-1)
+    riddl = riddles[to_guess]
+    print("You have a riddle to guess if you want to win the whole game!")
+    print(riddl[0])
+    answ = user_input.give_non_empty_str("Your answer: ")
+    answ=answ.strip()
+    
+    if answ == riddl[1]:
+        print("You're right!")
+        return True
+    print("Wrong answer! You've failed!")
+    return False
+
+
+
+
 def starting(keys,player_health):
 
     """
-    starting point of the game, where player comes back after each stage won and goes to another stage
+    The Starting Point of the game, where player comes back after each stage won and goes to another stage
     """
+
     print("You are welcome in the Neutral Zone: the place where you can enter mysterious places.")
     #call here a method with the beginning file with short introduction about a game :)
-    print()
-    while True:
-        if keys==[0,0]:
+    if keys==[0,0]:
             #Stage 1
             print("You enter the first stage: the House!")
             health =create_stage(1,player_health,0)
-            break
+            return STAT,health 
+    
+    print()
+    
+    while True:
 
         stage = user_input.get_key("Select a number corresponding to key possesed:"+
         "\n1: house  \n2: forest \n3: cave \nAnswer: ")
-
         if stage==2 and keys==[1,0]:
             #Stage 2
             print("You enter second stage: the Forest")
@@ -311,7 +348,6 @@ def starting(keys,player_health):
             print("You enter the Cave, your last stage!")
             health=create_stage(3,player_health,0)
 
-            #riddle
             break
 
         else:

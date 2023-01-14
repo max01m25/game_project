@@ -10,10 +10,12 @@ def game():
         print('========================STAGE I========================')
         one,health = game_board.starting(keys,player_health)
         if one==1:
-            print("You've earned a key to second stage!")
+            bonus=25
+            player_health=health+bonus
+            print(f"You've earned a key to the second stage and you recover! You gain additional {bonus} health!")
             print()
             keys[0]=1 
-            player_health=health
+            
         else:
             break
 
@@ -21,19 +23,26 @@ def game():
         print('========================STAGE II========================')
         two,health = game_board.starting(keys,player_health)
         if two==1:
-            print("You've earned a key to third stage!")
+            bonus=50
+            player_health=health+bonus
+            print(f"You've earned a key to the third stage and you recover! You gain additional {bonus} health!")
             print()
             keys[1]=1  
-            player_health=health
+            
         else:
             break
 
     #STAGE3
         print('========================STAGE III========================')
         three,health = game_board.starting(keys,player_health)
-        if three==1:
-            print("You have won the game!")
 
+        if three==1 :
+            x= game_board.riddle()
+            if x:
+                print("You have won the game!")
+            else:
+                print("GAME OVER")
+            
         break
 
 
