@@ -2,6 +2,7 @@ import game_board
 import user_input
 import files
 import time
+import won
 def game():
     keys=[0,0]
     player_health = 100
@@ -52,6 +53,7 @@ def game():
             x= game_board.riddle()
             if x:
                 print("You have won the game!")
+                won.won()
             else:
                 print("GAME OVER")
             
