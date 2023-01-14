@@ -1,13 +1,22 @@
 import game_board
-
-
+import user_input
+import files
+import time
 def game():
     keys=[0,0]
     player_health = 100
+
+    name = user_input.give_non_empty_str("What's your name?:\n")
+    print(f"Hello {name}! Welcome in the game <Lost Forest>!")
+    files.read_file("rules.txt")
+
     while True:
 
     #STAGE1 
+        
         print('========================STAGE I========================')
+        
+
         one,health = game_board.starting(keys,player_health)
         if one==1:
             bonus=25
@@ -18,7 +27,7 @@ def game():
             
         else:
             break
-
+        time.sleep(1.5)    
     #STAGE2
         print('========================STAGE II========================')
         two,health = game_board.starting(keys,player_health)

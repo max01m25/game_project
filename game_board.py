@@ -264,11 +264,11 @@ def create_stage(num_enemies,player_health,num_chests):
     
 
 
-    for i in range(num_enemies):
-        board[ENEMIES[i][0]][ENEMIES[i][1]]="E"+str(i+1)
-    if num_chests!=0:
-        for i in range(num_chests):
-            board[CHESTS[i][0]][CHESTS[i][1]]="C"+str(i+1)
+    # for i in range(num_enemies):
+    #     board[ENEMIES[i][0]][ENEMIES[i][1]]="E"+str(i+1)
+    # if num_chests!=0:
+    #     for i in range(num_chests):
+    #         board[CHESTS[i][0]][CHESTS[i][1]]="C"+str(i+1)
     
 
 
@@ -327,7 +327,7 @@ def starting(keys,player_health):
     #call here a method with the beginning file with short introduction about a game :)
     if keys==[0,0]:
             #Stage 1
-            print("You enter the first stage: the House!")
+            print("You enter the first stage: the Forest!")
             health =create_stage(1,player_health,0)
             return STAT,health 
     
@@ -336,10 +336,10 @@ def starting(keys,player_health):
     while True:
 
         stage = user_input.get_key("Select a number corresponding to key possesed:"+
-        "\n1: house  \n2: forest \n3: cave \nAnswer: ")
+        "\n1: forest  \n2: house \n3: cave \nAnswer: ")
         if stage==2 and keys==[1,0]:
             #Stage 2
-            print("You enter second stage: the Forest")
+            print("You enter second stage: the House")
             health=create_stage(1,player_health,2)
             break
 

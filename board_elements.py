@@ -27,9 +27,9 @@ def fight(player_health):
             enemy_health=0
         if player_health<0:
             player_health=0
-        print(f"State of health:\nYou: {player_health}\nEnemy: {enemy_health}")
         
         
+    print(f"State of health:\nYou: {player_health}\nEnemy: {enemy_health}")   
     if player_health>0:
         time.sleep(2)
         print(f"Your health after the fight is {player_health}, the enemy has {enemy_health}. You won")
@@ -56,6 +56,12 @@ def fight(player_health):
 
 
 def drop():
+
+    """
+    the function used if the chest is found on the board. The chest is opened: 
+    it can be empty, or the player can gain additional health
+    """
+    
     print("You found a chest! Let's open it!")
     time.sleep(1.5)
     health = 0

@@ -1,0 +1,7 @@
+The Forest is an exploration game. It consists of 3 stages, each with its own level of difficulty:
+Your journey starts in the forest, where you need to defeat one enemy. 
+If you succeed, you get the key for another stage: House.
+There you can find something more than enemies, but I would keep it as a secret. You will see as you get there!
+If you are lucky enough, you will posess a key for the last part of the game: Cave!
+The cave is full of mysteries and darkness. Only those who are strong and wise will become winners! 
+Good luck!
