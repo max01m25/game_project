@@ -21,7 +21,9 @@ def game():
         if one==1:
             bonus=25
             player_health=health+bonus
+            
             print(f"You've earned a key to the second stage and you recover! You gain additional {bonus} health!")
+            time.sleep(1)
             print()
             keys[0]=1 
             
@@ -35,6 +37,7 @@ def game():
             bonus=50
             player_health=health+bonus
             print(f"You've earned a key to the third stage and you recover! You gain additional {bonus} health!")
+            time.sleep(1)
             print()
             keys[1]=1  
             

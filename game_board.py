@@ -1,6 +1,7 @@
 import random
 import board_elements
 import user_input
+import time
 
 
 # Create the constants .
@@ -303,8 +304,11 @@ def riddle():
 
     to_guess= random.randint(0,len(riddles)-1)
     riddl = riddles[to_guess]
+    time.sleep(1)
     print("You have a riddle to guess if you want to win the whole game!")
+
     print(riddl[0])
+    time.sleep(1)
     answ = user_input.give_non_empty_str("Your answer: ")
     answ=answ.strip()
     

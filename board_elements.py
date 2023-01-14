@@ -14,26 +14,25 @@ def fight(player_health):
     """
     enemy_health = random.randint(1, 100)
     print(f"Your state of health before the fight: {player_health}, and your enemy: {enemy_health}")
-    
+    print("Fight till someone will be destroyed!")
     while enemy_health>0 and player_health>0: 
-        damage_enemy=random.randint(1, 15)
-        
-        print("Fight till someone will be destroyed!")
-        print(f"Damage: {damage_enemy}")
+        damage_enemy=random.randint(5, 15)
         time.sleep(1)
+        print(f"Fight!")
+        
         enemy_health -= damage_enemy
         player_health -= damage_enemy
+        
         if enemy_health<0:
             enemy_health=0
         if player_health<0:
             player_health=0
+        print(f"State of health:\nYou: {player_health}\nEnemy: {enemy_health}")  
         
-        
-    print(f"State of health:\nYou: {player_health}\nEnemy: {enemy_health}")   
+     
     if player_health>0:
         time.sleep(2)
         print(f"Your health after the fight is {player_health}, the enemy has {enemy_health}. You won")
-        #player_health = fight_result_person
         return True, player_health
     elif enemy_health>0:
         time.sleep(2)
@@ -61,7 +60,7 @@ def drop():
     the function used if the chest is found on the board. The chest is opened: 
     it can be empty, or the player can gain additional health
     """
-    
+
     print("You found a chest! Let's open it!")
     time.sleep(1.5)
     health = 0
