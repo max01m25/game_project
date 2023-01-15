@@ -1,6 +1,0 @@
-
-from PIL import Image
-
-def win():
-    im = Image.open(r"winfile.jpg")
-    im.show()

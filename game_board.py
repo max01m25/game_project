@@ -2,6 +2,7 @@ import random
 import board_elements
 import user_input
 import time
+import files
 
 
 # Create the constants .
@@ -285,6 +286,7 @@ def create_stage(num_enemies,player_health,num_chests):
         print()
         player_health=make_move(board,mo,player_health)
         if STAT==0:
+            files.read_img("lost_img.jpg")
             print("You lost a game!")
             break 
     return player_health

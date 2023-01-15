@@ -2,6 +2,7 @@ import game_board
 import user_input
 import files
 import time
+
 def game():
     keys=[0,0]
     player_health = 100
@@ -15,8 +16,6 @@ def game():
     #STAGE1 
         
         print('========================STAGE I========================')
-        
-
         one,health = game_board.starting(keys,player_health)
         if one==1:
             bonus=25
@@ -42,6 +41,7 @@ def game():
             keys[1]=1  
             
         else:
+           
             break
 
     #STAGE3
@@ -51,10 +51,13 @@ def game():
         if three==1 :
             x= game_board.riddle()
             if x:
+                print("Wait...")
+                time.sleep(2)
+                files.read_img("win_img.jpg")
                 print("You have won the game!")
             else:
                 print("GAME OVER")
-            
+
         break
 
 
