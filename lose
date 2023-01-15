@@ -1,0 +1,6 @@
+
+from PIL import Image
+
+def lose():
+    im = Image.open(r"losefile.jpg")
+    im.show()
